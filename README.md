@@ -82,7 +82,7 @@ A modular and extensible Library Management System built using **Clean Architect
 
   * (Planned) Renew borrowed copies before due date.
 
-*🧠 **Event Handling**:
+* 🧠 **Event Handling**:
 
    * Domain and integration events trigger logic like:
 
