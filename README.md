@@ -11,9 +11,9 @@ A modular and extensible Library Management System built using **Clean Architect
   * `Book`, `Copy`, `Loan`, `Reservation`, and `User` as separate domain aggregates
 
 * ✅ **CQRS Pattern**:
-* 
+  
   * Clear separation of command and query responsibilities
-  * 
+    
 * 🧩 **Domain-Driven Design**: 
 
   * Use of **Value Objects**, **Aggregates**, **Domain Services**, and **Repositories**
@@ -23,13 +23,13 @@ A modular and extensible Library Management System built using **Clean Architect
   * Events triggered on domain changes (e.g., `LoanReturnedEvent`, `ReservationCompletedEvent`)
 
 * ⚖️ **FluentValidation Integration**
-* 
+  
 
 * 🎯 **FluentResults Pattern**
-* 
+  
 
 * 🔄 **Transactional Unit of Work**
-* 
+  
 
 * 📡 **RESTful API**
 
