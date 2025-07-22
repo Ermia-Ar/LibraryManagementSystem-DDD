@@ -1,58 +1,59 @@
-🏛️ Library Management System (DDD Approach)
-A modular and extensible Library Management System built using Clean Architecture and Domain-Driven Design principles.
+# 📚 Library Management System (DDD Approach)
 
-🔍 Key Features
-📚 Rich Domain Layers:
+A modular and extensible Library Management System built using **Clean Architecture** and **Domain-Driven Design** principles.
 
-Book, Copy, Loan, Reservation, and User as separate domain aggregates
+---
 
-✅ CQRS Pattern:
+## 🔍 Key Features
 
-Clear separation of command and query responsibilities
+* 📚 **Rich Domain Layers**:
 
-🧩 Domain-Driven Design:
+  * `Book`, `Copy`, `Loan`, `Reservation`, and `User` as separate domain aggregates
 
-Use of Value Objects, Aggregates, Domain Services, and Repositories
+* ✅ **CQRS Pattern**:
 
-💡 Domain & Integration Events:
+  * Clear separation of command and query responsibilities
 
-Events triggered on domain changes (e.g., LoanReturnedEvent, ReservationCompletedEvent)
+* 🧩 **Domain-Driven Design**:
 
-⚖️ FluentValidation Integration:
+  * Use of **Value Objects**, **Aggregates**, **Domain Services**, and **Repositories**
 
-Input validation at application layer using expressive and composable validators
+* 💡 **Domain & Integration Events**:
 
-🎯 FluentResults Pattern:
+  * Events triggered on domain changes (e.g., `LoanReturnedEvent`, `ReservationCompletedEvent`)
 
-Consistent result handling across application with Success, Failure, NotFound, and more
+* ⚖️ **FluentValidation Integration**:
 
-🔄 Transactional Unit of Work:
+  * Input validation at application layer using expressive and composable validators
 
-Ensures atomic operations across repositories
+* 🎯 **FluentResults Pattern**:
 
-🧪 Unit Tests:
+  * Consistent result handling across application with `Success`, `Failure`, `NotFound`, and more
 
-Test coverage for both domain logic and application services
+* 🔄 **Transactional Unit of Work**:
 
-📡 RESTful API:
+  * Ensures atomic operations across repositories
 
-Decoupled, cleanly designed controllers using MediatR
+* 🧪 **Unit Tests**:
 
-📁 Technologies & Patterns
-C# 12, .NET 8
+  * Test coverage for both domain logic and application services
 
-EF Core 7+
+* 📡 **RESTful API**:
 
-MediatR
+  * Decoupled, cleanly designed controllers using MediatR
 
-FluentValidation
+---
 
-FluentResults
+## 📁 Technologies & Patterns
 
-SQL Server
+* **C# 12**, **.NET 8**
+* **EF Core 7+**
+* **MediatR**
+* **FluentValidation**
+* **FluentResults**
+* **SQL Server**
+* **Clean Architecture** (Domain, Application, Infrastructure, Presentation)
+* **DDD Building Blocks**: Aggregates, Value Objects, Domain Services, Events
+* **Unit Testing**: xUnit, Moq
 
-Clean Architecture (Domain, Application, Infrastructure, Presentation)
-
-DDD Building Blocks: Aggregates, Value Objects, Domain Services, Events
-
-Unit Testing: xUnit, Moq
+---
