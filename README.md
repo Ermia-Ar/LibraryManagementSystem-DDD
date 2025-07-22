@@ -74,7 +74,7 @@ A modular and extensible Library Management System built using **Clean Architect
 
  * 👥 **User Management**:
 
-  * Create and manage users and their loan history.
+   * Create and manage users and their loan history.
 
 * 🔄 **Returns & Renewals**:
 
@@ -84,10 +84,10 @@ A modular and extensible Library Management System built using **Clean Architect
 
 *🧠 **Event Handling**:
 
-  * Domain and integration events trigger logic like:
+   * Domain and integration events trigger logic like:
 
-  * Changing copy availability after return.
+   * Changing copy availability after return.
  
-  * Completing reservations on successful borrow.
+   * Completing reservations on successful borrow.
 
-  * Sending notifications (future enhancement).
+   * Sending notifications (future enhancement).
