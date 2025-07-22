@@ -52,42 +52,42 @@ A modular and extensible Library Management System built using **Clean Architect
 
 * 🔎 **Search & View Books**:
 
- * Browse available books and their metadata.
+  * Browse available books and their metadata.
 
 * 🆕 **Add New Books & Copies**:
 
- * Admins can register books and physical/digital copies.
+  * Admins can register books and physical/digital copies.
 
 * 📥 **Loan Management**:
 
- * Users can borrow available copies.
+  * Users can borrow available copies.
 
- * Track loan due dates and return borrowed items.
+  * Track loan due dates and return borrowed items.
 
- * Automatically calculate fines for late returns.
+  * Automatically calculate fines for late returns.
 
 * 📌 **Reservations**:
 
- * Reserve a book if all copies are currently borrowed.
+  * Reserve a book if all copies are currently borrowed.
 
- * Cancel or fulfill reservations.
+  * Cancel or fulfill reservations.
 
-* 👥 **User Management**:
+ * 👥 **User Management**:
 
- * Create and manage users and their loan history.
+  * Create and manage users and their loan history.
 
-*🔄 **Returns & Renewals**:
+* 🔄 **Returns & Renewals**:
 
- * Return borrowed books and update copy status.
+  * Return borrowed books and update copy status.
 
- * (Planned) Renew borrowed copies before due date.
+  * (Planned) Renew borrowed copies before due date.
 
 *🧠 **Event Handling**:
 
- * Domain and integration events trigger logic like:
+  * Domain and integration events trigger logic like:
 
- * Changing copy availability after return.
+  * Changing copy availability after return.
+ 
+  * Completing reservations on successful borrow.
 
- * Completing reservations on successful borrow.
-
- * Sending notifications (future enhancement).
+  * Sending notifications (future enhancement).
