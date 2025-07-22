@@ -1,56 +1,13 @@
-┌────────────────────────┐
-│         User           │
-├────────────────────────┤
-│ + Id                   │
-│ + Name (ValueObject)   │
-│ + Email (ValueObject)  │
-│ + PhoneNumber (VO)     │
-│ + Address (VO)         │
-│ + Sex (VO)             │
-│ + CheckedOutIds[]      │
-└────────┬───────────────┘
-         │ 1
-         │
-         ▼
-┌────────────────────────┐
-│         Loan           │
-├────────────────────────┤
-│ + Id                   │
-│ + CopyId               │
-│ + UserId               │
-│ + BorrowDate (VO)      │
-│ + DueDate              │
-│ + ReturnDate?          │
-│ + FineAmount           │
-└────────┬───────────────┘
-         │ 1
-         │
-         ▼
-┌────────────────────────┐
-│         Copy           │
-├────────────────────────┤
-│ + Id                   │
-│ + BookId               │
-│ + OperationalStatus    │ (Available / Borrowed / Reserved / Decommissioned)
-└────────┬───────────────┘
-         │ *
-         │
-         ▼
-┌────────────────────────┐
-│         Book           │
-├────────────────────────┤
-│ + Id                   │
-│ + Title                │
-│ + Author               │
-│ + Genre(s)             │
-│ + ISBN                 │
-└────────────────────────┘
+# Library Management System (DDD)
 
-┌────────────────────────┐
-│      Reservation        │
-├────────────────────────┤
-│ + Id                   │
-│ + UserId               │
-│ + CopyId               │
-│ + Status               │ (Active / Completed / Canceled)
-└────────────────────────┘
+A modular, domain-centric Library Management System built using **Domain-Driven Design (DDD)**, **Clean Architecture**, and **.NET 8**.
+
+## 🚀 Features
+
+- 📚 Book, Copy, Loan, Reservation and User domains
+- ✅ Fully implemented Command & Query separation (CQRS)
+- 💡 Rich domain model with value objects, aggregates, and domain services
+- 🧪 Unit tests for application and domain logic
+- 🧩 Modular and scalable architecture
+- 🔄 Support for transactional unit of work
+- 📡 RESTful APIs with clear separation of concerns
