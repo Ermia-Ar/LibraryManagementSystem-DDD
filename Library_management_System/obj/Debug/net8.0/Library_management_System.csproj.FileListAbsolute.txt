@@ -84,3 +84,5 @@ C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\
 C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\bin\Debug\net8.0\Mapster.Core.dll
 C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\bin\Debug\net8.0\Core.Application.dll
 C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\bin\Debug\net8.0\Core.Application.pdb
+C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\obj\Debug\net8.0\Library_management_System.sourcelink.json
+C:\Users\DELL\RiderProjects\Library_management_System\Library_management_System\bin\Debug\net8.0\Dapper.dll

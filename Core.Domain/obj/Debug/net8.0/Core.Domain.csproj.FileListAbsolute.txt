@@ -13,3 +13,4 @@ C:\Users\DELL\RiderProjects\Library_management_System\Core.Domain\obj\Debug\net8
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Domain\obj\Debug\net8.0\refint\Core.Domain.dll
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Domain\obj\Debug\net8.0\Core.Domain.pdb
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Domain\obj\Debug\net8.0\ref\Core.Domain.dll
+C:\Users\DELL\RiderProjects\Library_management_System\Core.Domain\obj\Debug\net8.0\Core.Domain.sourcelink.json

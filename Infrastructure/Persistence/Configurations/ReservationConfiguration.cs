@@ -1,4 +1,5 @@
-using Core.Domain.Aggregates.Reservations.ValueObjects;
+using Core.Domain.Aggregates.Copies;
+using Core.Domain.Aggregates.Reservations;
 using Core.Domain.Aggregates.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,16 +10,16 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 {
     public void Configure(EntityTypeBuilder<Reservation> builder)
     {
-        builder.Property( x => x.Id)
-            .ValueGeneratedNever()
-            .HasConversion(id => id.Id,
-                value => ReservationId.Create(value));
-
-        builder.ComplexProperty(x => x.CopyId)
-            .IsRequired();
+        builder.Property(x => x.Id)
+            .UseIdentityColumn(1000);
         
-        builder.ComplexProperty(x => x.UserId)
-            .IsRequired();
+        builder.HasOne<Copy>()
+            .WithOne()
+            .HasForeignKey<Reservation>(x => x.CopyId);
+        
+        builder.HasOne<User>()
+            .WithMany()
+            .HasForeignKey(x => x.UserId);
         
         builder.ComplexProperty(x => x.ReservationDate, ab =>
         {
@@ -26,8 +27,6 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
                 .IsRequired();
         });  
         
-        builder.ComplexProperty(x => x.Status)
-            .IsRequired();  
 
     }
 }

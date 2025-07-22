@@ -11,7 +11,7 @@ public abstract class BaseAggregateRoot<TId> : IAggregateRoot
 	public DateTime? UpdatedDate { get; set; }
 
 	public IReadOnlyCollection<IDomainEvent> Events => [.. _events];
-    private readonly List<IDomainEvent> _events;
+    private readonly List<IDomainEvent> _events = [];
     public void ClearEvents() => _events.Clear();
 
     protected abstract void ValidateInvariants();
@@ -31,10 +31,10 @@ public abstract class BaseAggregateRoot<TId> : IAggregateRoot
 		   obj.GetType() == GetType() &&
 		   Id.Equals(entity.Id);
 
-	public static bool operator ==(BaseAggregateRoot<TId> left, BaseAggregateRoot<TId> right)
+	public static bool operator ==(BaseAggregateRoot<TId>? left, BaseAggregateRoot<TId>? right)
 		=> left.Equals(right);
 
-	public static bool operator !=(BaseAggregateRoot<TId> left, BaseAggregateRoot<TId> right)
+	public static bool operator !=(BaseAggregateRoot<TId>? left, BaseAggregateRoot<TId>? right)
 		=> !left.Equals(right);
 
 	public override int GetHashCode()

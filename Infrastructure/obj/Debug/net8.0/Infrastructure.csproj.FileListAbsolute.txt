@@ -17,3 +17,6 @@ C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\obj\Debug\n
 C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\bin\Debug\net8.0\Core.Application.dll
+C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\bin\Debug\net8.0\Core.Application.pdb
+C:\Users\DELL\RiderProjects\Library_management_System\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

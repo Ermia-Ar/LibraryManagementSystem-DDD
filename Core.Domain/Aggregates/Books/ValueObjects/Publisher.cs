@@ -12,7 +12,7 @@ public sealed class Publisher : ValueObject<Publisher>
 
     public static Publisher Create(string name)
     {
-        if (name.Length <= 8)
+        if (name.Length <= 5)
         {
             throw new ArgumentNullException();
         }

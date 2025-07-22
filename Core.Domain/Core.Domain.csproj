@@ -11,8 +11,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Aggregates\Circulates\Enums\" />
-      <Folder Include="Serives\" />
+      <Folder Include="Aggregates\Loans\Enums\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     </ItemGroup>
 
 </Project>

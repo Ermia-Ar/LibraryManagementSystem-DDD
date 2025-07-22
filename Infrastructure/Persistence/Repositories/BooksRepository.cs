@@ -1,6 +1,5 @@
 ﻿using Core.Domain.Aggregates.Books;
 using Core.Domain.Aggregates.Books.Repository;
-using Core.Domain.Aggregates.Books.ValueObjects;
 using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +9,17 @@ public sealed class BooksRepository(ApplicationContext context) : IBooksReposito
 {
     private readonly ApplicationContext _context = context;
 
-    public async Task<bool> BookIsExistedById(BookId id, CancellationToken token)
+    public Book Add(Book book)
+    {
+        return _context.Books.Add(book).Entity;
+    }
+    
+    public void Remove(Book book)
+    {
+        _context.Books.Remove(book);
+    }
+
+    public async Task<bool> BookIsExistedById(int id, CancellationToken token)
     {
        var book = await _context.Books
             .FirstOrDefaultAsync(x => x.Id == id, token);
@@ -18,8 +27,9 @@ public sealed class BooksRepository(ApplicationContext context) : IBooksReposito
         return book != null;
     }
 
-    public void Add(Book book)
+    public async Task<Book?> FindById(long id, CancellationToken token)
     {
-        _context.Books.Add(book);
+        return await _context.Books
+            .FirstOrDefaultAsync(x => x.Id == id, token);
     }
 }

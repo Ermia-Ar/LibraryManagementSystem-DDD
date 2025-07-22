@@ -1,7 +1,7 @@
 using Core.Domain.Aggregates.Users;
-using Core.Domain.Aggregates.Users.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shared.Json;
 
 namespace Infrastructure.Persistence.Configurations;
 
@@ -9,10 +9,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.Property( x => x.Id)
-            .ValueGeneratedNever()
-            .HasConversion(id => id.Id,
-                value => UserId.Create(value));
+        builder.Property(x => x.Id)
+            .UseIdentityColumn(100000);
+        
         
         builder.ComplexProperty(x => x.Name, ab =>
         {
@@ -55,9 +54,12 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
                 .IsRequired();
         });
         
-        builder.ComplexProperty(x => x.Sex, ab =>
-        {
-            ab.IsRequired();
-        });
+        builder.Property(x => x.ReservationIds)
+            .HasConversion(x => Json.Serialize(x),
+                ab => Json.Deserialize<List<long>>(ab));
+        
+        builder.Property(x => x.LoanIds)
+            .HasConversion(x => Json.Serialize(x),
+                ab => Json.Deserialize<List<long>>(ab));
     }
 }

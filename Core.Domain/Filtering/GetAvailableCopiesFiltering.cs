@@ -1,9 +1,13 @@
+using Core.Domain.Aggregates.Books.Enums;
 using Core.Domain.Aggregates.Copies.Enums;
-using Core.Domain.Aggregates.Copies.ValueObjects;
 
 namespace Core.Domain.Filtering;
 
-public sealed record class GetAvailableCopiesFiltering(
-    PhysicalCondition PhysicalCondition,
-    Price Price
+public sealed record  GetAvailableCopiesFiltering(
+    string? Title,
+    string? Author,
+    string? Publisher,
+    PhysicalCondition? PhysicalCondition,
+    Double? Price,
+    Genre? Genre
     );

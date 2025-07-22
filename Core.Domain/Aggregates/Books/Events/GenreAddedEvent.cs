@@ -4,7 +4,7 @@ using Shared.Domain;
 namespace Core.Domain.Aggregates.Books.Events;
 
 public sealed record GenreAddedEvent(
-    Guid BookId,
+    long BookId,
     Genre Genre
     ) : IDomainEvent
 {

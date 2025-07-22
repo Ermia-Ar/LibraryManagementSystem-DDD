@@ -5,7 +5,12 @@ namespace Core.Domain.Aggregates.Copies.Repository;
 
 public interface ICopiesRepository
 {
-    public Task<IReadOnlyList<IResponse>> GetAvailableCopies(GetAvailableCopiesFiltering filtering,
+    Copy Add(Copy copy);
+    
+    void Remove(Copy copy);
+    
+    Task<IReadOnlyList<IResponse>> GetAvailable(GetAvailableCopiesFiltering filtering,
         CancellationToken token);
-    void Add(Copy copy);
+    
+    Task<Copy?> FindById(long id, CancellationToken token);
 }

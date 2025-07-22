@@ -1,6 +1,6 @@
 using Core.Domain.Aggregates.Users.Enums;
 using Core.Domain.Aggregates.Users.ValueObjects;
-using Shared.Command;
+using Shared.Mediator.Command;
 
 namespace Core.Application.ApplicationServices.Users.Commands.Add;
 

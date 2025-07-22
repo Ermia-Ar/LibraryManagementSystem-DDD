@@ -1,25 +1,26 @@
 using Core.Domain.Aggregates.Books.Enums;
 using Core.Domain.Aggregates.Books.Events;
 using Core.Domain.Aggregates.Books.ValueObjects;
-using Core.Domain.Aggregates.Copies.Enums;
-using Core.Domain.Aggregates.Copies.ValueObjects;
+using Core.Domain.Exceptions;
 using Shared.Domain;
 
 namespace Core.Domain.Aggregates.Books;
 
-public class Book : BaseAggregateRoot<BookId>
+public class Book : BaseAggregateRoot<long>
 {
-	private Book()
+	public Book()
 	{
 		_genres = [];
+		_copyIds = [];
 	}
 	
-	private Book(BookId id, Title title,
+	private Book(Title title,
 		Author author, PublicationDate date, Publisher publisher)
 	{
 		_genres = [];
+		_copyIds = [];
 		HandleEvent(
-			new BookCreatedEvent(id.ToGuid(), Title.ToString(),
+			new BookCreatedEvent(title.ToString(),
 				  author.ToString(), publisher.ToString(), date.ToDateTime())
 			);
 	}
@@ -31,41 +32,70 @@ public class Book : BaseAggregateRoot<BookId>
 	public PublicationDate PublicationDate { get; protected set; } = null!;
 
 	public Publisher Publisher { get; protected set; } = null!;
+	
 
 	private readonly List<Genre> _genres;
 	public IReadOnlyList<Genre> Genres => [.. _genres];
 
+	private readonly List<long> _copyIds;
+	public IReadOnlyList<long> CopyIds => [.._copyIds];
 
-	public static Book Create(BookId id, Title title,
+
+	public static Book Create(Title title,
 		Author author, PublicationDate publicationDate, Publisher publisher)
 	{
-		return new Book(id, title,
+		return new Book(title,
 			author, publicationDate, publisher); 
 	}
 	
-	public void AddGenres(Genre genres)
+	public void AddGenres(List<Genre> genres)
 	{
-		if (_genres.Contains(genres))
+		foreach (Genre genre in genres)
 		{
-			throw new ArgumentException($"Genre {nameof(genres)} is already added");
-		}
-		HandleEvent(
-			new GenreAddedEvent(
-				Id.ToGuid(),
-				genres)
+			if (_genres.Contains(genre))
+			{
+				throw new InvalidDateDomainException($"Genre {nameof(genres)} is already added");
+			}
+			HandleEvent(
+				new GenreAddedEvent(
+					Id,
+					genre)
 			);
+		}
 	}
 
 	public void RemoveGenre(Genre genre)
 	{
 		HandleEvent(
 			new RemovedGenreEvent(
-				Id.ToGuid(),
+				Id,
 				genre)
 			);
 	}
 
+	public void AddCopyId(long copyId)
+	{
+		HandleEvent(
+			new CopyAddedEvent(
+				copyId,
+				Id
+				)
+			);
+	}
 
+	public void RemoveCopyId(long copyId)
+	{
+		if (!_copyIds.Contains(copyId))
+			throw new InvalidDateDomainException($"Copy ID {copyId} does not exist");
+		
+		HandleEvent(
+			new CopyRemovedEvent(
+				copyId,
+				Id
+				)
+			);
+	}
+	
 	protected override void ValidateInvariants()
 	{
 
@@ -77,7 +107,6 @@ public class Book : BaseAggregateRoot<BookId>
 		{
 
 			case BookCreatedEvent e:
-				Id = BookId.Create(e.BookId);
 				Title = Title.Create(e.Title);
 				Author = Author.Create(e.Author);
 				Publisher = Publisher.Create(e.Publisher);
@@ -93,6 +122,16 @@ public class Book : BaseAggregateRoot<BookId>
 
 			case RemovedGenreEvent e:
 				_genres.Remove(e.Genre);
+				UpdatedDate = DateTime.Now;
+				break;
+			
+			case CopyAddedEvent e:
+				_copyIds.Add(e.CopyId);
+				UpdatedDate = DateTime.Now;
+				break;
+			
+			case CopyRemovedEvent e:	
+				_copyIds.Remove(e.CopyId);
 				UpdatedDate = DateTime.Now;
 				break;
 

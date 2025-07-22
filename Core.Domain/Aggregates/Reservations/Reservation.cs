@@ -1,68 +1,75 @@
-﻿using Core.Domain.Aggregates.Copies.ValueObjects;
-using Core.Domain.Aggregates.Reservations.Enums;
+﻿using Core.Domain.Aggregates.Reservations.Enums;
 using Core.Domain.Aggregates.Reservations.Events;
 using Core.Domain.Aggregates.Reservations.ValueObjects;
-using Core.Domain.Aggregates.Users.ValueObjects;
+using Core.Domain.Exceptions;
 using Shared.Domain;
 
-namespace Core.Domain.Aggregates.Users;
+namespace Core.Domain.Aggregates.Reservations;
 
-public class Reservation : BaseAggregateRoot<ReservationId>
+public class Reservation : BaseAggregateRoot<long>
 {
-	private Reservation()
+	public Reservation()
 	{
 		
 	}
 	
-    private Reservation(ReservationId id, CopyId copyId, UserId userId,
+    private Reservation(long copyId, long userId,
 		ReservationDate reservationDate)
     {
 		HandleEvent(
 			new ReservationCreatedEvent(
-				id.ToGuid(),
-				copyId.ToGuid(),
-				userId.ToGuid(),
+				copyId,
+				userId,
 				reservationDate.ToDateTime()
 				)
 			);
     }
-    public CopyId CopyId { get; protected set; } = null!;
+    public long CopyId { get; protected set; }
 
-	public UserId UserId { get; protected set; } = null!;
+	public long UserId { get; protected set; }
 
 	public ReservationDate ReservationDate { get; protected set; } = null!;
 
 	public ReservationStatus Status { get; protected set; }
 
-	public static Reservation Create(ReservationId id,
-		CopyId copyId, UserId userId, ReservationDate date)
+	public static Reservation Create(long copyId,
+		long userId, ReservationDate date)
 	{
-		return new Reservation(id, copyId, userId, date);
+		return new Reservation(copyId, userId, date);
 	}
 
-	public void MakeExpired()
+	public void Expire()
 	{
+		if (Status != ReservationStatus.Pending)
+			throw new InvalidDateDomainException("This reservation is already cancelled");
+		
 		HandleEvent(
-			new MakedExpiredReservationEvent(
-				Id.ToGuid()
+			new ReservationExpiredEvent(
+				Id
 				)
 			);
 	}
 
-	public void MakeCancelled()
+	public void Cancel()
 	{
+		if (Status != ReservationStatus.Pending)
+			throw new InvalidDateDomainException("This reservation is already cancelled");
+		
 		HandleEvent(
-			new MakedCancelledReservationEvent(
-				Id.ToGuid()
+			new ReservationCancelledEvent(
+				Id
 				)
 			);
 	}
 
-	public void MakeCompleted()
+	public void Complete()
 	{
+		if (Status != ReservationStatus.Pending)
+			throw new InvalidDateDomainException("This reservation is already cancelled");
+		
 		HandleEvent(
-			new MakedCompletedReservationEvent(
-				Id.ToGuid()
+			new ReservationCompletedEvent(
+				Id
 				)
 			);
 	}
@@ -77,26 +84,25 @@ public class Reservation : BaseAggregateRoot<ReservationId>
 		switch (@event)
 		{
 			case ReservationCreatedEvent e:
-				Id = ReservationId.Create(e.ReservationId);
-				CopyId = CopyId.Create(e.CopyId);
-				UserId = UserId.Create(e.UserId);
+				CopyId = e.CopyId;
+				UserId = e.UserId;
 				ReservationDate = ReservationDate.Create(e.ReservationDate);
 				Status = ReservationStatus.Pending;
 				CreatedDate = DateTime.Now;
 				IsActive = true;
 				break;
 
-			case MakedCancelledReservationEvent e:
+			case ReservationCancelledEvent:
 				Status = ReservationStatus.Cancelled;
 				UpdatedDate = DateTime.Now;
 				break;
 
-			case MakedCompletedReservationEvent e:
+			case ReservationCompletedEvent:
 				Status = ReservationStatus.Completed;	
 				UpdatedDate = DateTime.Now;
 				break;
 
-			case MakedExpiredReservationEvent e:
+			case ReservationExpiredEvent:
 				Status = ReservationStatus.Expired;
 				UpdatedDate = DateTime.Now;
 				break;

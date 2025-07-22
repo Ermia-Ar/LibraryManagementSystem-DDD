@@ -12,9 +12,9 @@ public class Author : ValueObject<Author>
 
     public static Author Create(string fullName)
     {
-        if (fullName.Length < 8)
+        if (fullName.Length < 5)
         {
-            throw new ArgumentException("");
+            throw new ArgumentException();
         }
         
         return new Author { FullName = fullName };

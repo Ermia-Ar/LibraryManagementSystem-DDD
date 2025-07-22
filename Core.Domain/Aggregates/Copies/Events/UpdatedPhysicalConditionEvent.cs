@@ -4,8 +4,7 @@ using Shared.Domain;
 namespace Core.Domain.Aggregates.Copies.Events;
 
 public sealed record UpdatedPhysicalConditionEvent(
-    Guid CopyId,
-    Guid BookId,
+    long CopyId,
     PhysicalCondition Condition
     ) : IDomainEvent
 {

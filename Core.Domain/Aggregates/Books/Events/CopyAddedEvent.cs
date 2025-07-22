@@ -4,11 +4,10 @@ using Shared.Domain;
 namespace Core.Domain.Aggregates.Books.Events;
 
 public sealed record CopyAddedEvent(
-    Guid CopyId,
-    Guid BookId
+    long CopyId,
+    long BookId
 
     ): IDomainEvent
 {
     public DateTime OccurredOn { get; } = DateTime.Now;
 }
-    

@@ -4,7 +4,6 @@ using Shared.Domain;
 namespace Core.Domain.Aggregates.Users.Events;
 
 public sealed record UserCreatedEvent(
-    Guid UserId,
     string FullName,
     Sex Sex,
 	string Street,

@@ -4,10 +4,10 @@ namespace Core.Domain.Aggregates.Users.ValueObjects;
 
 public class Address : ValueObject<Address>
 {
-	public string Street { get; private init; }
-	public string City { get; private init; }
-	public string PostalCode { get; private init; }
-	public string Country { get; private init; }
+	public string Street { get; private init; } = null!;
+	public string City { get; private init; } = null!;
+	public string PostalCode { get; private init; } = null!;
+	public string Country { get; private init; } = null!;
 
 
 	public static Address Create(string street, string city
@@ -31,9 +31,8 @@ public class Address : ValueObject<Address>
 	private static bool IsValidPostalCode(string postalCode)
 	{
 		return !string.IsNullOrWhiteSpace(postalCode) &&
-			postalCode.All(char.IsDigit) &&
-			postalCode.Length >= 5 &&
-			postalCode.Length <= 10;
+		       postalCode.All(char.IsDigit) &&
+		       postalCode.Length is >= 5 and <= 10;
 	}
 
 	public override IEnumerable<object> GetEqualityComponents()

@@ -4,8 +4,7 @@ using Shared.Domain;
 namespace Core.Domain.Aggregates.Copies.Events;
 
 public sealed record CopyCreatedEvent(
-    Guid CopyId,
-    Guid BookId,
+    long BookId,
     double Price,
     PhysicalCondition Condition
 

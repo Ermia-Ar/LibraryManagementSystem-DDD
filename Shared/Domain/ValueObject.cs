@@ -13,7 +13,7 @@ public  abstract class ValueObject<T> where T : ValueObject<T>
     public static bool operator ==(ValueObject<T> left, ValueObject<T> right)
         => left.Equals(right);
 
-    public static bool operator !=(ValueObject<T> left, ValueObject<T> right)
+    public static bool operator !=(ValueObject<T>? left, ValueObject<T>? right)
         => !left.Equals(right);
 
     public override int GetHashCode()

@@ -1,12 +1,12 @@
 ﻿namespace Shared.Domain;
 
 public abstract class BaseEntity<TId>
-    (Action<IDomainEvent> applire) where TId : notnull
+    (Action<IDomainEvent> applier) where TId : notnull
 {
 	public TId Id { get; protected set; }
 
 
-    private Action<IDomainEvent> _applier = applire;
+    private readonly Action<IDomainEvent> _applier = applier;
 
 	public bool IsActive { get; set; }
 

@@ -10,3 +10,4 @@ C:\Users\DELL\RiderProjects\Library_management_System\Shared\obj\Debug\net8.0\Sh
 C:\Users\DELL\RiderProjects\Library_management_System\Shared\obj\Debug\net8.0\refint\Shared.dll
 C:\Users\DELL\RiderProjects\Library_management_System\Shared\obj\Debug\net8.0\Shared.pdb
 C:\Users\DELL\RiderProjects\Library_management_System\Shared\obj\Debug\net8.0\ref\Shared.dll
+C:\Users\DELL\RiderProjects\Library_management_System\Shared\obj\Debug\net8.0\Shared.sourcelink.json

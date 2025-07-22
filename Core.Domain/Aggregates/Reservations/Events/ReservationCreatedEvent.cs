@@ -3,9 +3,8 @@
 namespace Core.Domain.Aggregates.Reservations.Events;
 
 public sealed record ReservationCreatedEvent(
-	Guid ReservationId,
-	Guid CopyId,
-	Guid UserId,
+	long CopyId,
+	long UserId,
 	DateTime ReservationDate
 
 	) : IDomainEvent

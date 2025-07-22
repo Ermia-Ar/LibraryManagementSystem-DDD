@@ -1,6 +1,5 @@
 using Core.Domain.Aggregates.Books;
 using Core.Domain.Aggregates.Books.Enums;
-using Core.Domain.Aggregates.Books.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shared.Json;
@@ -11,12 +10,8 @@ public sealed class BookConfiguration : IEntityTypeConfiguration<Book>
 {
     public void Configure(EntityTypeBuilder<Book> builder)
     {
-        builder.Property( x => x.Id)
-            .ValueGeneratedNever()
-            .HasConversion(id => id.Id,
-                value => BookId.Create(value));
-        
-        
+        builder.Property(x => x.Id)
+            .UseIdentityColumn(1000);
         
         builder.ComplexProperty(x => x.Title, ab =>
         {
@@ -47,7 +42,11 @@ public sealed class BookConfiguration : IEntityTypeConfiguration<Book>
 
         
         builder.Property(x => x.Genres)
-            .HasConversion(x => Json.Serialize(x)
-                , ab => Json.Deserialize<List<Genre>>(ab));
+            .HasConversion(x => Json.Serialize(x),
+                ab => Json.Deserialize<List<Genre>>(ab));
+        
+        builder.Property(x => x.CopyIds)
+            .HasConversion(x => Json.Serialize(x), 
+                ab => Json.Deserialize<List<long>>(ab));
     }
 }

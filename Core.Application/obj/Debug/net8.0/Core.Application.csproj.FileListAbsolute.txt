@@ -15,3 +15,4 @@ C:\Users\DELL\RiderProjects\Library_management_System\Core.Application\obj\Debug
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Application\obj\Debug\net8.0\refint\Core.Application.dll
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Application\obj\Debug\net8.0\Core.Application.pdb
 C:\Users\DELL\RiderProjects\Library_management_System\Core.Application\obj\Debug\net8.0\ref\Core.Application.dll
+C:\Users\DELL\RiderProjects\Library_management_System\Core.Application\obj\Debug\net8.0\Core.Application.sourcelink.json

@@ -51,6 +51,14 @@
           }
         }
       },
+      "Dapper/2.1.66": {
+        "runtime": {
+          "lib/net8.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.66.48463"
+          }
+        }
+      },
       "FluentValidation/12.0.0": {
         "runtime": {
           "lib/net8.0/FluentValidation.dll": {
@@ -619,6 +627,7 @@
       },
       "Core.Domain/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
@@ -627,7 +636,10 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "Core.Application": "1.0.0",
           "Core.Domain": "1.0.0",
+          "Dapper": "2.1.66",
+          "Mapster": "7.4.2-pre02",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0"
         },
         "runtime": {
@@ -664,6 +676,13 @@
       "sha512": "sha512-eHEiCO/8+MfNc9nH5dVew/+FvxdaGrkRL4OMNwIz0W79+wtJyEoeRlXJ3SrXhoy9XR58geBYKmzMR83VO7bcAw==",
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
+    },
+    "Dapper/2.1.66": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/q77jUgDOS+bzkmk3Vy9SiWMaetTw+NOoPAV0xPBsGVAyljd5S6P+4RUW7R3ZUGGr9lDRyPKgAMj2UAOwvqZYw==",
+      "path": "dapper/2.1.66",
+      "hashPath": "dapper.2.1.66.nupkg.sha512"
     },
     "FluentValidation/12.0.0": {
       "type": "package",

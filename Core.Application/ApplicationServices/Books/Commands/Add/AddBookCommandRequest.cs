@@ -1,6 +1,6 @@
 using Core.Domain.Aggregates.Books.Enums;
 using Core.Domain.Aggregates.Books.ValueObjects;
-using Shared.Command;
+using Shared.Mediator.Command;
 
 namespace Core.Application.ApplicationServices.Books.Commands.Add;
 

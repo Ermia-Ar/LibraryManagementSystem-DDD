@@ -15,7 +15,7 @@ public sealed class Title : ValueObject<Title>
     {
         if (content.Length <= 3)
         {
-            throw new ArgumentException();
+            throw new ArgumentException("Are You Ok ??");
         }
         
         return new Title { Content = content };

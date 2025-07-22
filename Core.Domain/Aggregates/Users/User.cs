@@ -1,24 +1,28 @@
-using System.Runtime.InteropServices;
+using System.Data;
 using Core.Domain.Aggregates.Users.Enums;
 using Core.Domain.Aggregates.Users.Events;
 using Core.Domain.Aggregates.Users.ValueObjects;
+using Core.Domain.Exceptions;
 using Shared.Domain;
 
 namespace Core.Domain.Aggregates.Users;
 
-public class User : BaseAggregateRoot<UserId>
+public class User : BaseAggregateRoot<long>
 {
 	private User()
 	{
-		
+		_loanIds = [];
+		_reservationIds = [];
 	}
 	
-	private User(UserId id, FullName name, Sex sex, 
+	private User(FullName name, Sex sex, 
 		Address address, PhoneNumber number, Email email) 
     {
+	    _loanIds = [];
+	    _reservationIds = [];
+	    
 		HandleEvent(
 			new UserCreatedEvent(
-				id.ToGuid(),
 				name.ToString(),
 				sex,
 				address.Street,
@@ -31,7 +35,7 @@ public class User : BaseAggregateRoot<UserId>
 			);
     }
 
-	public FullName Name { get; protected set; } = null!;	
+	public FullName Name { get; protected set; } = null!;
 
 	public Sex Sex { get; protected set; }
 
@@ -40,34 +44,62 @@ public class User : BaseAggregateRoot<UserId>
 	public PhoneNumber PhoneNumber { get; protected set; } = null!;
 
 	public Email Email { get; protected set; } = null!;
+	
+
+	private readonly List<long> _loanIds;
+	public IReadOnlyList<long> LoanIds => [.._loanIds];
+	
+
+	private readonly List<long> _reservationIds;
+	public IReadOnlyList<long> ReservationIds => [.._reservationIds];
 
 
-	public static User Create(UserId id, FullName name, Sex sex,
+	public static User Create(FullName name, Sex sex,
 		Address address, PhoneNumber number, Email email)
 	{
-		return new User(id, name,
+		return new User(name,
 			sex, address, number, email);
 	}
 
-	public void UpdateAddress(Address address)
+	public void AddLoansId(long checkedOutId)
 	{
+		if (_loanIds.Count + _reservationIds.Count > 10)
+			throw new InvalidDateDomainException("Checked outs and reservations cant be greater than 10");
+		
 		HandleEvent(
-			new UpdatedAddressEvent(
-				Id.ToGuid(),
-				address.Street,
-				address.City,
-				address.PostalCode,
-				address.Country
+			new LoanIdAddedEvent(
+				Id,
+				checkedOutId
 				)
 			);
 	}
 
-	public void UpdatePhoneNumber(PhoneNumber number)
+	public void AddReservationId(long reservationId)
+	{
+		if (_loanIds.Count + _reservationIds.Count > 10)
+			throw new InvalidDateDomainException("Checked outs and reservations cant be greater than 10");
+		
+		HandleEvent(
+			new ReservationIdAddedEvent(
+				Id,
+				reservationId
+				)
+			);
+	}
+
+	public void UpdateInfo(FullName fullName
+		,PhoneNumber number, Address address, Email email)
 	{
 		HandleEvent(
-			new UpdatedPhoneNumberEvent(
-				Id.ToGuid(),
-				number.ToString()
+			new UpdatedUserInfoEvent(
+				Id,
+				fullName.ToString(),
+				address.Street,
+				address.City,
+				address.PostalCode,
+				address.Country,
+				number.ToString(),
+				email.ToString()
 				)
 			);
 	}
@@ -81,7 +113,6 @@ public class User : BaseAggregateRoot<UserId>
 		switch (@event)
 		{
 			case UserCreatedEvent e:
-				Id = UserId.Create(e.UserId);
 				Name = FullName.Create(e.FullName);
 				Sex = e.Sex;
 				Address = Address.Create(e.Street, e.City, e.PostalCode, e.Country);
@@ -89,6 +120,25 @@ public class User : BaseAggregateRoot<UserId>
 				Email = Email.Create(e.Email);
 				CreatedDate = DateTime.Now;
 				IsActive = true;
+				break;
+			
+			case UpdatedUserInfoEvent e:
+				Address = Address.Create(e.Street, e.City, e.PostalCode, e.Country);
+				Name = FullName.Create(e.FullName);
+				Address = Address.Create(e.Street, e.City, e.PostalCode, e.Country);
+				PhoneNumber = PhoneNumber.Create(e.PhoneNumber);
+				Email = Email.Create(e.Email);
+				UpdatedDate = DateTime.UtcNow;
+				break;
+			
+			case ReservationIdAddedEvent e:
+				_reservationIds.Add(e.ReservationId);
+				UpdatedDate = DateTime.Now;
+				break;
+			
+			case LoanIdAddedEvent e:
+				_loanIds.Add(e.CheckOutId);
+				UpdatedDate = DateTime.Now;
 				break;
 		}
 	}

@@ -1,5 +1,5 @@
 ﻿using Shared.Domain;
-using Shared.Utility;
+using Shared.Utilities;
 
 namespace Core.Domain.Aggregates.Users.ValueObjects;
 

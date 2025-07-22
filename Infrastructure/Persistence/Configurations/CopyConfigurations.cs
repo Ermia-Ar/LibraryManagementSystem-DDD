@@ -1,5 +1,5 @@
+using Core.Domain.Aggregates.Books;
 using Core.Domain.Aggregates.Copies;
-using Core.Domain.Aggregates.Copies.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,10 +9,12 @@ public class CopyConfigurations : IEntityTypeConfiguration<Copy>
 {
     public void Configure(EntityTypeBuilder<Copy> builder)
     {
-        builder.Property( x => x.Id)
-            .ValueGeneratedNever()
-            .HasConversion(id => id.Id,
-                value => CopyId.Create(value));
+        builder.Property(x => x.Id)
+            .UseIdentityColumn(1000);
+
+        builder.HasOne<Book>()
+            .WithMany()
+            .HasForeignKey(x => x.BookId);
 
         builder.ComplexProperty(x => x.Price, ab =>
         {
@@ -22,20 +24,6 @@ public class CopyConfigurations : IEntityTypeConfiguration<Copy>
             })
             .IsRequired();
         });
-
-        builder.ComplexProperty(x => x.BookId, ab =>
-        {
-            ab.IsRequired();
-        });
-
-        builder.ComplexProperty(x => x.OperationalStatus, ab =>
-        {
-
-        });
-
-        builder.ComplexProperty(x => x.PhysicalCondition, ab =>
-        {
-            ab.IsRequired();
-        });
+        
     }
 }
