@@ -8,10 +8,6 @@ namespace Core.Domain.Aggregates.Loans;
 
 public class Loan : BaseAggregateRoot<long>
 {
-	private Loan()
-	{
-		
-	}
     private Loan(long copyId, long userId,
 		BorrowDate borrowDate, DueDate dueDate)
     {
@@ -32,7 +28,7 @@ public class Loan : BaseAggregateRoot<long>
 	public BorrowDate BorrowDate { get; protected set; } = null!;
 
 	public DueDate DueDate { get; protected set; } = null!;
-
+	//ef 
 	public ReturnDate? ReturnDate { get; protected set; }
 
 	public FineAmount? FineAmount { get; protected set; }
@@ -75,7 +71,8 @@ public class Loan : BaseAggregateRoot<long>
 
 	protected override void ValidateInvariants()
 	{
-		
+		//check state of oof entity
+		//for example we cant have fineAmount Without ReturnDate
 	}
 
 	protected override void SetStateByEvent(IDomainEvent @event)

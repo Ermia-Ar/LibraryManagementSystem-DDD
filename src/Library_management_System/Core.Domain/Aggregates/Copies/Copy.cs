@@ -7,10 +7,6 @@ namespace Core.Domain.Aggregates.Copies;
 
 public class Copy : BaseAggregateRoot<long>
 {
-	public Copy()
-	{
-		
-	}
 	
     private Copy(long bookId, Price price,
 	    PhysicalCondition physicalCondition) 

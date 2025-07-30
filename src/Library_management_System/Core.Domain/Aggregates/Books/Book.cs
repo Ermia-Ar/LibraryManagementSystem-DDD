@@ -8,12 +8,6 @@ namespace Core.Domain.Aggregates.Books;
 
 public class Book : BaseAggregateRoot<long>
 {
-	public Book()
-	{
-		_genres = [];
-		_copyIds = [];
-	}
-	
 	private Book(Title title,
 		Author author, PublicationDate date, Publisher publisher)
 	{

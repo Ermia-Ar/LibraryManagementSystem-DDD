@@ -9,12 +9,6 @@ namespace Core.Domain.Aggregates.Users;
 
 public class User : BaseAggregateRoot<long>
 {
-	private User()
-	{
-		_loanIds = [];
-		_reservationIds = [];
-	}
-	
 	private User(FullName name, Sex sex, 
 		Address address, PhoneNumber number, Email email) 
     {
