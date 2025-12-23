@@ -1,8 +1,3 @@
-using Core.Domain.Aggregates.Copies;
-using Core.Domain.UnitOfWork;
-using Shared.Mediator.Command;
-using Shared.Responses;
-
 namespace Core.Application.ApplicationServices.Books.Commands.AddCopy;
 
 public sealed class AddCopyCommandHandler(

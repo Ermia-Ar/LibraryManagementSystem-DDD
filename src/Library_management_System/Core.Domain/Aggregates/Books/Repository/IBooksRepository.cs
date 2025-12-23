@@ -1,6 +1,4 @@
-﻿using Core.Domain.Aggregates.Books.ValueObjects;
-
-namespace Core.Domain.Aggregates.Books.Repository;
+﻿namespace Core.Domain.Aggregates.Books.Repository;
 
 public interface IBooksRepository
 {

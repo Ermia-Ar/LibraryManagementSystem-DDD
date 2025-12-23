@@ -1,7 +1,3 @@
-using Core.Domain.Filtering;
-using Shared.Helper;
-using Shared.Mediator.Query;
-
 namespace Core.Application.ApplicationServices.Users.Queries.GetLoans;
 
 public sealed record GetLoansForUserQueryRequest(

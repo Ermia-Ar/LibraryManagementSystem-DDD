@@ -1,8 +1,3 @@
-using Core.Domain.Aggregates.Copies.Enums;
-using Core.Domain.Aggregates.Copies.Events;
-using Core.Domain.Aggregates.Copies.ValueObjects;
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Copies;
 
 public class Copy : BaseAggregateRoot<long>

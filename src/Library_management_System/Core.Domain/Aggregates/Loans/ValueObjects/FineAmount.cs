@@ -1,7 +1,4 @@
-﻿using Core.Domain.Aggregates.Copies.ValueObjects;
-using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Loans.ValueObjects;
+﻿namespace Core.Domain.Aggregates.Loans.ValueObjects;
 
 public class FineAmount : ValueObject<FineAmount>
 {

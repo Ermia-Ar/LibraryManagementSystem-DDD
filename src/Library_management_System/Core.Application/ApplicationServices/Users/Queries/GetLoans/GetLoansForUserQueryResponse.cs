@@ -1,5 +1,3 @@
-using Shared.Helper;
-
 namespace Core.Application.ApplicationServices.Users.Queries.GetLoans;
 
 public sealed record GetLoansForUserQueryResponse(

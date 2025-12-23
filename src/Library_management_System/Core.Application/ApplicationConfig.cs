@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
 using Core.Application.Common.Behaviors;
-using FluentValidation;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Application;

@@ -1,8 +1,3 @@
-using System.Net;
-using Shared.Responses;
-using Microsoft.AspNetCore.Http;
-using Shared.Exceptions;
-
 namespace Shared.Middleware;
 
 	public class ErrorHandlerMiddleware(RequestDelegate next)

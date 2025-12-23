@@ -1,6 +1,4 @@
-﻿using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Loans.Events;
+﻿namespace Core.Domain.Aggregates.Loans.Events;
 
 public sealed record LoanCreatedEvent(
 	long CopyId,

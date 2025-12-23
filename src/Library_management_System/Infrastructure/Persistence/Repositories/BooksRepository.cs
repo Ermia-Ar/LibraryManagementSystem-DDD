@@ -1,9 +1,4 @@
-﻿using Core.Domain.Aggregates.Books;
-using Core.Domain.Aggregates.Books.Repository;
-using Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure.Persistence.Repositories;
+﻿namespace Infrastructure.Persistence.Repositories;
 
 public sealed class BooksRepository(ApplicationContext context) : IBooksRepository
 {
@@ -16,7 +11,7 @@ public sealed class BooksRepository(ApplicationContext context) : IBooksReposito
     
     public void Remove(Book book)
     {
-        _context.Books.Remove(book);
+        book.IsActive = false;
     }
 
     public async Task<bool> BookIsExistedById(int id, CancellationToken token)

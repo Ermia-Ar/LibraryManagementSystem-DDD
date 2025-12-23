@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Users.ValueObjects;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Users.Commands.Update;
 
 public sealed record UpdateUserInfoCommandRequest(
@@ -12,7 +9,7 @@ public sealed record UpdateUserInfoCommandRequest(
 ) : ICommand
 {
     public static UpdateUserInfoCommandRequest Create(long id, UpdateUserInfoCommandRequestDto model)
-        => new UpdateUserInfoCommandRequest(
+        => new (
             id,
             model.FullName,
             model.Address,

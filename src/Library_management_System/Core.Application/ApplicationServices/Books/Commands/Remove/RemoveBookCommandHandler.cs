@@ -1,7 +1,3 @@
-using Core.Domain.UnitOfWork;
-using Shared.Mediator.Command;
-using Shared.Responses;
-
 namespace Core.Application.ApplicationServices.Books.Commands.Remove;
 
 public sealed class RemoveBookCommandHandler(

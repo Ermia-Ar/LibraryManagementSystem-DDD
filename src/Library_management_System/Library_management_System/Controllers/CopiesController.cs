@@ -1,14 +1,3 @@
-using Core.Application.ApplicationServices.Books.Commands.AddCopy;
-using Core.Application.ApplicationServices.Copies.Commands.Decommissioned;
-using Core.Application.ApplicationServices.Copies.Commands.Remove;
-using Core.Application.ApplicationServices.Copies.Commands.UpdatePhysicalCondition;
-using Core.Application.ApplicationServices.Copies.Commands.UpdatePrice;
-using Core.Application.ApplicationServices.Copies.Queries.GetAvailable;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Shared.Helper;
-using Shared.Responses;
-
 namespace Library_management_System.Controllers;
 
 [Route("api/[controller]")]
@@ -16,14 +5,14 @@ namespace Library_management_System.Controllers;
 public class CopiesController(ISender sender) : Controller
 {
     private readonly ISender _sender = sender;
-    
+
     [HttpGet]
     public async Task<Response<PaginatedResult<GetAvailableCopiesQueryResponse>>> GetAll(
         [FromQuery] GetAvailableCopiesDto model,
         CancellationToken token)
     {
         var request = GetAvailableCopiesQueryRequest.Create(model);
-		
+
         return await _sender.Send(request, token);
     }
 

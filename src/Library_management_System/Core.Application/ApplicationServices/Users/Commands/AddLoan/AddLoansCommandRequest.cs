@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Loans.ValueObjects;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Users.Commands.AddLoan;
 
 public sealed record AddLoansCommandRequest(

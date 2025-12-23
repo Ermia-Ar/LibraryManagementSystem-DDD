@@ -1,10 +1,4 @@
 using System.Reflection;
-using Core.Domain.Aggregates.Books;
-using Core.Domain.Aggregates.Copies;
-using Core.Domain.Aggregates.Loans;
-using Core.Domain.Aggregates.Reservations;
-using Core.Domain.Aggregates.Users;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Context;
 

@@ -1,9 +1,6 @@
 using System.Data;
-using Core.Domain.Aggregates.Users.Enums;
 using Core.Domain.Aggregates.Users.Events;
 using Core.Domain.Aggregates.Users.ValueObjects;
-using Core.Domain.Exceptions;
-using Shared.Domain;
 
 namespace Core.Domain.Aggregates.Users;
 

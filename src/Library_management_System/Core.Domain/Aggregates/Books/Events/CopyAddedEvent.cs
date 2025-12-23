@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Copies.Enums;
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Books.Events;
 
 public sealed record CopyAddedEvent(

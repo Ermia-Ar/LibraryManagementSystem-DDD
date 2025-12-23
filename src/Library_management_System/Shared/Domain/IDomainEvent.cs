@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Shared.Domain;
+﻿namespace Shared.Domain;
 public interface IDomainEvent : INotification
 {
     DateTime OccurredOn { get; }

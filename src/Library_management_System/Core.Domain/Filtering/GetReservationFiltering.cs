@@ -1,5 +1,3 @@
-using Core.Domain.Aggregates.Reservations.Enums;
-
 namespace Core.Domain.Filtering;
 
 public sealed record  GetReservationFiltering(

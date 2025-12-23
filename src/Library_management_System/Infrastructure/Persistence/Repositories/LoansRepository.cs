@@ -1,15 +1,5 @@
-using System.Collections.Immutable;
-using System.Data;
 using Core.Application.ApplicationServices.Loans.Queries.GetById;
 using Core.Application.ApplicationServices.Users.Queries.GetLoans;
-using Core.Domain.Aggregates.Loans;
-using Core.Domain.Aggregates.Loans.Repository;
-using Core.Domain.Filtering;
-using Dapper;
-using Infrastructure.Persistence.Context;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Shared.Helper;
 
 namespace Infrastructure.Persistence.Repositories;
 

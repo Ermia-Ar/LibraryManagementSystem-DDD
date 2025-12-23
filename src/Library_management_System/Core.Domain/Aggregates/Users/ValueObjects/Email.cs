@@ -1,7 +1,4 @@
-﻿using Shared.Domain;
-using Shared.Utilities;
-
-namespace Core.Domain.Aggregates.Users.ValueObjects;
+﻿namespace Core.Domain.Aggregates.Users.ValueObjects;
 
 public class Email : ValueObject<Email>
 {

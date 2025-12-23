@@ -1,8 +1,3 @@
-using Core.Domain.Aggregates.Books;
-using Core.Domain.Aggregates.Copies;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace Infrastructure.Persistence.Configurations;
 
 public class CopyConfigurations : IEntityTypeConfiguration<Copy>

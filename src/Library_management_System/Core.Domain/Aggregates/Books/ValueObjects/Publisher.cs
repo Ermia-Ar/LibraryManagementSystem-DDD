@@ -1,5 +1,3 @@
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Books.ValueObjects;
 
 public sealed class Publisher : ValueObject<Publisher>

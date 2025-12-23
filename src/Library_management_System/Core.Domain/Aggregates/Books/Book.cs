@@ -1,9 +1,3 @@
-using Core.Domain.Aggregates.Books.Enums;
-using Core.Domain.Aggregates.Books.Events;
-using Core.Domain.Aggregates.Books.ValueObjects;
-using Core.Domain.Exceptions;
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Books;
 
 public class Book : BaseAggregateRoot<long>

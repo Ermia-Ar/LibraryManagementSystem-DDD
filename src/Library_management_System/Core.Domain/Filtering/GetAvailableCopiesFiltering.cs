@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Books.Enums;
-using Core.Domain.Aggregates.Copies.Enums;
-
 namespace Core.Domain.Filtering;
 
 public sealed record  GetAvailableCopiesFiltering(

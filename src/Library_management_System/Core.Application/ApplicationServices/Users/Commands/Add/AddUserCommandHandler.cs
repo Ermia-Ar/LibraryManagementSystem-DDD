@@ -1,7 +1,4 @@
 using Core.Domain.Aggregates.Users;
-using Core.Domain.UnitOfWork;
-using Shared.Mediator.Command;
-using Shared.Responses;
 
 namespace Core.Application.ApplicationServices.Users.Commands.Add;
 

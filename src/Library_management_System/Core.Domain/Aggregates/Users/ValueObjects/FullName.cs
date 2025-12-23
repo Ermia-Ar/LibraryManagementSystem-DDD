@@ -1,6 +1,4 @@
-﻿using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Users.ValueObjects;
+﻿namespace Core.Domain.Aggregates.Users.ValueObjects;
 
 public class FullName : ValueObject<FullName>
 {

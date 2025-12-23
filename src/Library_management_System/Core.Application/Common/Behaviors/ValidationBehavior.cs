@@ -1,7 +1,4 @@
-using FluentValidation;
 using FluentValidation.Results;
-using MediatR;
-using Shared.Responses;
 
 namespace Core.Application.Common.Behaviors;
 

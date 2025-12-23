@@ -1,6 +1,4 @@
-﻿using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Loans.ValueObjects;
+﻿namespace Core.Domain.Aggregates.Loans.ValueObjects;
 
 public class BorrowDate : ValueObject<BorrowDate>
 {

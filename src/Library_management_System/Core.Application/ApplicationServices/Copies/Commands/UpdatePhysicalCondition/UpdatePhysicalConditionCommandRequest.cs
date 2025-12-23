@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Copies.Enums;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Copies.Commands.UpdatePhysicalCondition;
 
 public sealed record UpdatePhysicalConditionCommandRequest(

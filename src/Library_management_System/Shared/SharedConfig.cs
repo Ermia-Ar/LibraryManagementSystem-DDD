@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Shared.Middleware;
-
 namespace Shared;
 
 public static class SharedConfig

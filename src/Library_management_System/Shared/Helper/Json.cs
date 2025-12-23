@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace Shared.Json;
 
 public static class Json

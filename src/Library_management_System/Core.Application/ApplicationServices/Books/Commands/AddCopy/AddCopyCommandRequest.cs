@@ -1,7 +1,3 @@
-using Core.Domain.Aggregates.Copies.Enums;
-using Core.Domain.Aggregates.Copies.ValueObjects;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Books.Commands.AddCopy;
 
 public sealed record AddCopyCommandRequest(
@@ -11,7 +7,7 @@ public sealed record AddCopyCommandRequest(
 ) : ICommand
 {
     public static AddCopyCommandRequest Create(long bookId, AddCopyCommandRequestDto model)
-        => new AddCopyCommandRequest(
+        => new (
             bookId,
             model.Price,
             model.Condition

@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Copies.ValueObjects;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Copies.Commands.UpdatePrice;
 
 public sealed record UpdatePriceCommandRequest(

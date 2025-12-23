@@ -1,8 +1,4 @@
-using Core.Domain.Aggregates.Books;
 using Core.Domain.Aggregates.Books.Enums;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Shared.Json;
 
 namespace Infrastructure.Persistence.Configurations;
 

@@ -1,8 +1,3 @@
-using Core.Domain.Services;
-using Core.Domain.UnitOfWork;
-using Shared.Mediator.Command;
-using Shared.Responses;
-
 namespace Core.Application.ApplicationServices.Loans.Commands.Return;
 
 public sealed class ReturnLoanCommandHandler(

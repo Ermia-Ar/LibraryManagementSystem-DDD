@@ -1,9 +1,3 @@
-using Core.Domain.Aggregates.Copies;
-using Core.Domain.Aggregates.Reservations;
-using Core.Domain.Aggregates.Users;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace Infrastructure.Persistence.Configurations;
 
 public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>

@@ -1,7 +1,4 @@
-﻿using Core.Domain.Aggregates.Copies.Enums;
-using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Copies.Events;
+﻿namespace Core.Domain.Aggregates.Copies.Events;
 
 public sealed record UpdatedPhysicalConditionEvent(
     long CopyId,

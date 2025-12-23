@@ -1,9 +1,3 @@
-using Core.Domain.UnitOfWork;
-using Mapster;
-using Shared.Helper;
-using Shared.Mediator.Query;
-using Shared.Responses;
-
 namespace Core.Application.ApplicationServices.Copies.Queries.GetAvailable;
 
 public sealed class GetAvailableCopiesQueryHandler(

@@ -1,5 +1,3 @@
-using Shared.Helper;
-
 namespace Core.Application.ApplicationServices.Loans.Queries.GetById;
 
 public sealed record GetLoanByIdQueryResponse(

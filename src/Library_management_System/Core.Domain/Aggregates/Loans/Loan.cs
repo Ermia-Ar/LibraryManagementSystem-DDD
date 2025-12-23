@@ -1,10 +1,4 @@
-﻿using Core.Domain.Aggregates.Copies.ValueObjects;
-using Core.Domain.Aggregates.Loans.Events;
-using Core.Domain.Aggregates.Loans.ValueObjects;
-using Core.Domain.Exceptions;
-using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Loans;
+﻿namespace Core.Domain.Aggregates.Loans;
 
 public class Loan : BaseAggregateRoot<long>
 {

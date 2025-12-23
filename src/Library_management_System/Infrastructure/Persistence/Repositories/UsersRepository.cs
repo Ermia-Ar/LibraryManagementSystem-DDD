@@ -1,8 +1,3 @@
-using Core.Domain.Aggregates.Users;
-using Core.Domain.Aggregates.Users.Repository;
-using Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
-
 namespace Infrastructure.Persistence.Repositories;
 
 public class UsersRepository(

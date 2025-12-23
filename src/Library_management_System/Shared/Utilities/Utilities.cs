@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Shared.Utilities
+﻿namespace Shared.Utilities
 {
     public static class Utilities
     {

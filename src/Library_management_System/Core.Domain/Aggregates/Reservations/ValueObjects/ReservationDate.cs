@@ -1,6 +1,4 @@
-﻿using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Reservations.ValueObjects;
+﻿namespace Core.Domain.Aggregates.Reservations.ValueObjects;
 
 public class ReservationDate : ValueObject<ReservationDate>
 {

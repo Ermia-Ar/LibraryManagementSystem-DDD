@@ -1,14 +1,4 @@
-using System.Collections.Immutable;
-using System.Data;
 using Core.Application.ApplicationServices.Copies.Queries.GetAvailable;
-using Core.Domain.Aggregates.Copies;
-using Core.Domain.Aggregates.Copies.Repository;
-using Core.Domain.Filtering;
-using Dapper;
-using Infrastructure.Persistence.Context;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Shared.Helper;
 
 namespace Infrastructure.Persistence.Repositories;
 
@@ -25,7 +15,7 @@ public sealed class CopiesRepository(
     
     public void Remove(Copy copy)
     {
-        _context.Copies.Remove(copy);
+        copy.IsActive = false;
     }
 
     public async Task<IReadOnlyList<IResponse>> GetAvailable(GetAvailableCopiesFiltering filtering,

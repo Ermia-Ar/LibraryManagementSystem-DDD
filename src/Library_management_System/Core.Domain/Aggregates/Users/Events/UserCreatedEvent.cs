@@ -1,7 +1,4 @@
-﻿using Core.Domain.Aggregates.Users.Enums;
-using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Users.Events;
+﻿namespace Core.Domain.Aggregates.Users.Events;
 
 public sealed record UserCreatedEvent(
     string FullName,

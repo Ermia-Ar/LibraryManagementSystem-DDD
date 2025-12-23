@@ -1,6 +1,4 @@
-﻿using Shared.Domain;
-
-namespace Core.Domain.Aggregates.Reservations.Events;
+﻿namespace Core.Domain.Aggregates.Reservations.Events;
 
 public sealed record ReservationExpiredEvent(
 	long ReservationId

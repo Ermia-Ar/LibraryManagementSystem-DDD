@@ -1,6 +1,3 @@
-using Core.Domain.Filtering;
-using Shared.Helper;
-
 namespace Core.Domain.Aggregates.Copies.Repository;
 
 public interface ICopiesRepository

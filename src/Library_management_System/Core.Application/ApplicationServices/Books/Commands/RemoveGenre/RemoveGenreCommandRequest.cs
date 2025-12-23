@@ -1,7 +1,3 @@
-using Core.Domain.Aggregates.Books;
-using Core.Domain.Aggregates.Books.Enums;
-using Shared.Mediator.Command;
-
 namespace Core.Application.ApplicationServices.Books.Commands.RemoveGenre;
 
 public record RemoveGenreCommandRequest(

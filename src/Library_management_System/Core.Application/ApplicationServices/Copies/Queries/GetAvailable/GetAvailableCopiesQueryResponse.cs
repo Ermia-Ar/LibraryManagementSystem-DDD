@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Copies.Enums;
-using Shared.Helper;
-
 namespace Core.Application.ApplicationServices.Copies.Queries.GetAvailable;
 
 public sealed record GetAvailableCopiesQueryResponse(

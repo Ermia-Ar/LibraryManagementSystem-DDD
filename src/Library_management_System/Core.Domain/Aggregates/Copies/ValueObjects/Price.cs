@@ -1,5 +1,3 @@
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Copies.ValueObjects;
 
 public class Price : ValueObject<Price>

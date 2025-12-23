@@ -1,6 +1,3 @@
-using Core.Domain.Aggregates.Books;
-using Shared.Domain;
-
 namespace Core.Domain.Aggregates.Books.ValueObjects;
 
 public sealed class Title : ValueObject<Title>

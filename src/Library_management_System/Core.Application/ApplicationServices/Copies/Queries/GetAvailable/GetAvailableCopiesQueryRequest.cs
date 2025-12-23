@@ -1,10 +1,3 @@
-using Core.Domain.Aggregates.Books.Enums;
-using Core.Domain.Aggregates.Copies.Enums;
-using Core.Domain.Aggregates.Copies.ValueObjects;
-using Core.Domain.Filtering;
-using Shared.Helper;
-using Shared.Mediator.Query;
-
 namespace Core.Application.ApplicationServices.Copies.Queries.GetAvailable;
 
 public sealed record GetAvailableCopiesQueryRequest(

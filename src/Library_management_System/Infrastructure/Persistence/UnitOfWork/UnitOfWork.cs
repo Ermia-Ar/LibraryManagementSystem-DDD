@@ -1,10 +1,4 @@
-﻿using Core.Domain.Aggregates.Books.Repository;
-using Core.Domain.Aggregates.Copies.Repository;
-using Core.Domain.Aggregates.Loans.Repository;
-using Core.Domain.Aggregates.Reservations.Repository;
-using Core.Domain.Aggregates.Users.Repository;
-using Core.Domain.UnitOfWork;
-using Infrastructure.Persistence.Context;
+﻿using Core.Domain.UnitOfWork;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Infrastructure.Persistence.UnitOfWork;

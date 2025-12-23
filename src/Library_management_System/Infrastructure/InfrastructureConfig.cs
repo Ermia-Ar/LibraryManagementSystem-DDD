@@ -1,11 +1,4 @@
-﻿using Core.Domain.Aggregates.Books.Repository;
-using Core.Domain.Aggregates.Copies.Repository;
-using Core.Domain.Aggregates.Loans.Repository;
-using Core.Domain.Aggregates.Reservations.Repository;
-using Core.Domain.Aggregates.Users.Repository;
-using Core.Domain.UnitOfWork;
-using Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Core.Domain.UnitOfWork;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.Persistence.Repositories;
